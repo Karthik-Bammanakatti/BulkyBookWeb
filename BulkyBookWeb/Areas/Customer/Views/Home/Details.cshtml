@@ -1,0 +1,82 @@
+﻿@model BulkyBook.Models.ShoppingCart
+
+<form method="post">
+    <div class="card  container pt-4 mt-4">
+        <div class="card-header text-light ml-0  row ">
+            <div class="col-12 col-md-6">
+                <h1 class="text-white-50">@Model.Product.Title</h1>
+                <p class="text-white">by @Model.Product.Author</p>
+            </div>
+            <div class="col-12 col-md-6 text-end pt-4">
+                <span class="badge rounded-pill text-bg-success mx-2">@Model.Product.CoverType.Name</span>
+                <span class="badge rounded-pill text-bg-danger mx-2">@Model.Product.Category.Name</span>
+            </div>
+        </div>
+        <div class="card-body row container">
+            <div class="container rounded p-2">
+                <div class="row">
+                    <div class="col-8 col-lg-8">
+
+                        <div class="row pl-2">
+                            <h5 class="text-success">ISBN : @Model.Product.ISBN</h5>
+                        </div>
+                        <div class="row pl-2">
+                            <h5 class="text-success pb-2">List Price : <strike>$ @Model.Product.ListPrice.ToString("0.00")</strike></h5>
+                        </div>
+                        <div class="row text-center pl-2 text-success">
+                            <div class="p-1 col-2  border-bottom ">
+                                <div>Quantity</div>
+                            </div>
+                            <div class="p-1 col-2  border-bottom">
+                                <div>1-50</div>
+                            </div>
+                            <div class="p-1 col-2  border-bottom">
+                                <div>51-100</div>
+                            </div>
+                            <div class="p-1 col-2  border-bottom">
+                                <div>100+</div>
+                            </div>
+                        </div>
+                        <div class="row text-center pl-2" style="color:white; font-weight:bold">
+                            <div class="p-1 col-2 ">
+                                <div>Price</div>
+                            </div>
+                            <div class="p-1 col-2 ">
+                                <div>$ @Model.Product.Price.ToString("0.00")</div>
+                            </div>
+                            <div class="p-1 col-2 ">
+                                <div>$ @Model.Product.Price50.ToString("0.00")</div>
+                            </div>
+                            <div class="p-1 col-2 ">
+                                <div>$ @Model.Product.Price100.ToString("0.00")</div>
+                            </div>
+                        </div>
+                        <div class="row pl-2 mt-3  text-success">
+                            <h5>Description :</h5>
+                        </div>
+                        <div class="row pl-2 mt-1 mx-1 mb-2 text-success">
+                            @Html.Raw(Model.Product.Description)
+                        </div>
+                        <div class="row pl-2">
+                            <div class="col-2 text-success mt-1"><h4>Count</h4></div>
+                            <div class="col-3" style="margin-left:-30px"><input class="form-control" value="@Model.Count"/></div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-3 offset-lg-1 text-center">
+                        <img src="@Model.Product.ImageUrl" width="100%" class="rounded" style="border: solid 1px aqua"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card-footer">
+            <div class="row">
+                <div class="col-12 col-md-6 pb-1">
+                    <a class="btn btn-success form-control" asp-action="Index">Back to List</a>
+                </div>
+                <div class="col-12 col-md-6 pb-1">
+                    <button type="submit" value="Add to Cart" class="btn btn-primary form-control">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
