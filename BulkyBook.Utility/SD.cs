@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace BulkyBook.Utility
 {
+    //Static Data.
     public static class SD
     {
         public const string Role_User_Indi = "Individual";
